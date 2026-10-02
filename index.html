@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#1a472a" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Linarópolis</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      // Registrar el Service Worker para la PWA (para que funcione sin internet)
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(
+            (registro) => console.log('Service Worker registrado con éxito: ', registro.scope),
+            (error) => console.log('Error al registrar el Service Worker: ', error)
+          );
+        });
+      }
+    </script>
+  </body>
+</html>
+

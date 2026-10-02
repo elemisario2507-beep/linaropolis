@@ -1,0 +1,250 @@
+/* ========================================
+   Linarópolis — Pantalla de Inicio
+   Colores inspirados en el verde del tablero
+   y el dorado de la minería linarense
+   ======================================== */
+
+/* --- Contenedor principal --- */
+.pantalla-inicio {
+  min-height: 100vh;
+  min-height: 100dvh; /* Para móviles modernos */
+  background: linear-gradient(145deg, #0d3320 0%, #1a472a 40%, #2d6b3f 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* --- Fondo decorativo (líneas tipo tablero) --- */
+.fondo-decorativo {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+}
+
+.linea-decorativa {
+  position: absolute;
+  background: white;
+  border-radius: 4px;
+}
+
+.linea-1 {
+  width: 200%;
+  height: 2px;
+  top: 25%;
+  left: -50%;
+  transform: rotate(-15deg);
+}
+
+.linea-2 {
+  width: 200%;
+  height: 2px;
+  top: 55%;
+  left: -50%;
+  transform: rotate(10deg);
+}
+
+.linea-3 {
+  width: 200%;
+  height: 2px;
+  top: 80%;
+  left: -50%;
+  transform: rotate(-5deg);
+}
+
+/* --- Contenido principal --- */
+.contenido-inicio {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 420px;
+  width: 100%;
+}
+
+/* --- Logo y títulos --- */
+.logo-container {
+  text-align: center;
+}
+
+.titulo-juego {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 900;
+  color: #f5d061;
+  text-shadow:
+    2px 2px 0px #8b6914,
+    4px 4px 0px rgba(0, 0, 0, 0.3);
+  letter-spacing: 3px;
+  line-height: 1.1;
+  /* Efecto de brillo dorado */
+  background: linear-gradient(180deg, #ffe085 0%, #f5d061 40%, #d4a832 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.4));
+}
+
+.subtitulo {
+  font-size: clamp(0.9rem, 3vw, 1.15rem);
+  color: #a8d5a2;
+  margin-top: 8px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+.lema {
+  font-size: clamp(0.75rem, 2.5vw, 0.9rem);
+  color: #78b seventeen;
+  color: #78b572;
+  margin-top: 6px;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* --- Dado interactivo --- */
+.dado {
+  font-size: clamp(4rem, 15vw, 6rem);
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s ease;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  line-height: 1;
+}
+
+.dado:hover {
+  transform: scale(1.1);
+}
+
+.dado:active {
+  transform: scale(0.95);
+}
+
+.dado-animando {
+  animation: sacudir-dado 0.1s infinite alternate;
+}
+
+@keyframes sacudir-dado {
+  0% { transform: rotate(-10deg) scale(1.05); }
+  100% { transform: rotate(10deg) scale(1.05); }
+}
+
+.texto-dado {
+  font-size: 0.8rem;
+  color: #78b572;
+  opacity: 0.7;
+  margin-top: -12px;
+}
+
+/* --- Botones del menú --- */
+.botones-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.boton-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 24px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.boton-menu:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.boton-menu:active {
+  transform: translateY(0);
+}
+
+.boton-descripcion {
+  font-size: 0.75rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* Botón principal — dorado */
+.boton-principal {
+  background: linear-gradient(135deg, #d4a832 0%, #f5d061 100%);
+  color: #1a3a1a;
+  border-color: #f5d061;
+}
+
+.boton-principal:hover {
+  background: linear-gradient(135deg, #e0b83a 0%, #ffe085 100%);
+}
+
+/* Botón CPU — verde */
+.boton-cpu {
+  background: rgba(45, 107, 63, 0.6);
+  color: #e0f0e0;
+  border-color: rgba(168, 213, 162, 0.4);
+}
+
+.boton-cpu:hover {
+  background: rgba(45, 107, 63, 0.9);
+  border-color: rgba(168, 213, 162, 0.7);
+}
+
+/* Botón online — azul */
+.boton-online {
+  background: rgba(30, 80, 130, 0.6);
+  color: #d0e8ff;
+  border-color: rgba(120, 180, 255, 0.4);
+}
+
+.boton-online:hover {
+  background: rgba(30, 80, 130, 0.9);
+  border-color: rgba(120, 180, 255, 0.7);
+}
+
+/* --- Pie de página --- */
+.pie-inicio {
+  text-align: center;
+  color: #78b572;
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 12px;
+}
+
+.version {
+  font-size: 0.7rem;
+  margin-top: 4px;
+  opacity: 0.5;
+}
+
+/* --- Responsive: pantallas muy pequeñas --- */
+@media (max-height: 600px) {
+  .pantalla-inicio {
+    padding: 12px;
+  }
+
+  .contenido-inicio {
+    gap: 14px;
+  }
+
+  .dado {
+    font-size: 3.5rem;
+  }
+
+  .boton-menu {
+    padding: 12px 20px;
+  }
+}
